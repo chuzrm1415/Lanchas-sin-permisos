@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ocean-950 text-ocean-50 font-body antialiased;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(14, 127, 173, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(11, 102, 145, 0.1) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-sand-400 hover:bg-sand-300 text-ocean-950 font-semibold
+           px-6 py-3 rounded-xl transition-all duration-200
+           shadow-lg shadow-sand-400/20 hover:shadow-sand-400/40
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply border border-ocean-600 hover:border-ocean-400 text-ocean-200 hover:text-white
+           px-6 py-3 rounded-xl transition-all duration-200
+           hover:bg-ocean-800/40;
+  }
+
+  .card {
+    @apply bg-ocean-900/60 backdrop-blur-sm border border-ocean-700/50
+           rounded-2xl overflow-hidden
+           transition-all duration-300
+           hover:border-ocean-500/60 hover:shadow-xl hover:shadow-ocean-900/60
+           hover:-translate-y-1;
+  }
+
+  .input-field {
+    @apply w-full bg-ocean-800/60 border border-ocean-600/60
+           text-ocean-50 placeholder-ocean-400
+           rounded-xl px-4 py-3
+           focus:outline-none focus:ring-2 focus:ring-sand-400/50 focus:border-sand-400/60
+           transition-all duration-200 font-body;
+  }
+
+  .label {
+    @apply block text-ocean-300 text-sm font-medium mb-2 tracking-wide;
+  }
+
+  .tag {
+    @apply inline-flex items-center gap-1 px-3 py-1
+           bg-ocean-700/60 text-ocean-200 text-xs font-medium
+           rounded-full border border-ocean-600/40;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-sand-300 via-sand-200 to-ocean-200;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-panel {
+    @apply bg-ocean-800/30 backdrop-blur-md border border-ocean-700/40 rounded-2xl;
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      rgba(14, 127, 173, 0.08) 25%,
+      rgba(14, 127, 173, 0.18) 50%,
+      rgba(14, 127, 173, 0.08) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(14, 127, 173, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(14, 127, 173, 0.7);
+}
